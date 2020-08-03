@@ -82,7 +82,7 @@
             },
             password: {
               required: true,
-              minLength: 6
+              minlength: 6
             }
           },
           messages: {
@@ -91,7 +91,7 @@
             },
             password: {
               required: '请填写密码',
-              minLength: '密码最少 6 位数'
+              minlength: '密码最少 6 位数'
             }
           },
           onMessage: (data) => {
