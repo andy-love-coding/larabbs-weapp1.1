@@ -89,6 +89,7 @@
   import { getTopics, getCategories } from '@/api/topic'
   import { turquoise } from 'color-name';
   import listRefresh from '@/mixins/list-refresh.js'
+  import eventHub from '@/common/eventHub'
 
   wepy.page({
     mixins: [ listRefresh ],
@@ -103,6 +104,12 @@
     async onLoad() {
       this.loadCategories()
       this.loadData()
+
+      eventHub.$on('topic-deleted', (topic) => {
+        this.page = 1
+        this.noMoreData = false
+        this.loadData(true)
+      })
     },
     computed: {
       currentCategoryId() {
