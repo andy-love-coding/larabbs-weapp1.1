@@ -104,6 +104,7 @@
       currentCategory: {},
       // 是否显示分类
       categoryOpen: false,
+      TabBar: 'index'
     },
     async onLoad() {
       this.loadCategories()
@@ -165,6 +166,5 @@
         this.categories = categories
       }
     }
-
   })
 </script>

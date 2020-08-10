@@ -1,9 +1,14 @@
 export default {
-  async onshow() {
+  onShow() {
     this.updateUnreadCount()
+    if (!this.unreadCount) {
+      wx.removeTabBarBadge({
+        index: 1
+      })
+    }
   },
   watch: {
-    unreadCount: function() {
+    unreadCount() {
       this.updateUnreadCount()
     }
   },
@@ -13,10 +18,6 @@ export default {
         wx.setTabBarBadge({
           index: 1,
           text: this.unreadCount.toString()
-        })
-      } else {
-        wx.removeTabBarBadge({
-          index: 1
         })
       }
     }
