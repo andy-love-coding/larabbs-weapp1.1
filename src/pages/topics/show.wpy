@@ -145,6 +145,18 @@
       eventHub.$on('reply-deleted', (reply) => {
         this.topic.top_replies = this.topic.top_replies.filter((r) => r.id !== reply.id)
       });
+    },
+    onShareAppMessage() {
+      console.log(111)
+      return {
+        // 标题是话题标题
+        title: this.topic.title,
+        // 路径为话题详情路径
+        path: '/pages/topics/show?id=' + this.topic.id,
+        complete: (res) => {
+          console.log('success: ', res)
+        }
+      }
     }
   })
 </script>
