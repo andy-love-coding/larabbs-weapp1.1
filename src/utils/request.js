@@ -2,7 +2,8 @@ import wepy from '@wepy/core'
 import store from '@/store'
 
 // 服务器接口地址
-const host = 'http://laravel4.0.test/api/v1/'
+// const host = 'http://laravel4.0.test/api/v1/'
+const host = API_URL
 
 // 普通请求
 const request = async (url, options = {}, showLoading = true) => {
